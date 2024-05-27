@@ -18,7 +18,6 @@ def handle_server(server_socket):
 
 def send_messages(server_socket):
     while True:
-        
         message = input()
         server_socket.sendall(message.encode('utf-8'))
 
