@@ -18,11 +18,12 @@ def handle_server(server_socket):
 
 def send_messages(server_socket):
     while True:
+        
         message = input()
         server_socket.sendall(message.encode('utf-8'))
 
 def start_client():
-    host = '192.168.178.60'  # Replace with the server's IP address
+    host = '192.168.178.60'  # Replace with the server's IP address (IPv4 after ipconfig in the terminal) 
     port = 12345  # Must be the same as the server's port
 
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
