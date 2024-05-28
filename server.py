@@ -38,8 +38,8 @@ def broadcast(message, sender_socket):
 def send_messages():
     while True:
         message = input()
-        formatted_message = f"Server: {message}"
-        broadcast(f"{COLOR_YELLOW}{formatted_message}{COLOR_RESET}", None)
+        formatted_message = f"{message}"
+        broadcast(f"{COLOR_MAGENTA}{formatted_message}{COLOR_RESET}", None)
 
 def start_server():
     global client_count
