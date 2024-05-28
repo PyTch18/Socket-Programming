@@ -29,7 +29,7 @@ def broadcast(message, sender_socket):
     for client in clients:
         if client != sender_socket:
             try:
-                client.sendall(f"{COLOR_MAGENTA}{message}{COLOR_RESET}".encode('utf-8'))
+                client.sendall(message.encode('utf-8'))
             except:
                 client.close()
                 clients.remove(client)
@@ -38,8 +38,9 @@ def broadcast(message, sender_socket):
 def send_messages():
     while True:
         message = input()
-        formatted_message = f"{message}"
-        broadcast(f"{COLOR_YELLOW}{formatted_message}{COLOR_RESET}", None)
+        formatted_message = f"{COLOR_YELLOW}Server: {message}{COLOR_RESET}"
+        print(formatted_message)  # Print server messages locally
+        broadcast(formatted_message, None)
 
 def start_server():
     global client_count

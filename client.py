@@ -9,7 +9,7 @@ def handle_server(server_socket):
         try:
             message = server_socket.recv(1024).decode('utf-8')
             if message:
-                print(f"{COLOR_RED}Server: {message}{COLOR_RESET}")
+                print(f"{COLOR_RED}{message}{COLOR_RESET}")
             else:
                 break
         except:
@@ -21,8 +21,13 @@ def send_messages(server_socket):
         message = input()
         server_socket.sendall(message.encode('utf-8'))
 
+def get_host_ip():
+    hostname = socket.gethostname()
+    ip_address = socket.gethostbyname(hostname)
+    return ip_address
+
 def start_client():
-    host = '172.20.10.6'  # Replace with the server's IP address (IPv4 after ipconfig in the terminal) 
+    host = get_host_ip()  # Get the host's IP address automatically
     port = 12345  # Must be the same as the server's port
 
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
