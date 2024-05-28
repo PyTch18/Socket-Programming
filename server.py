@@ -14,7 +14,7 @@ def handle_client(client_socket, client_name):
         try:
             message = client_socket.recv(1024).decode('utf-8')
             if message:
-                formatted_message = f"{COLOR_YELLOW}{client_name}: {message}{COLOR_RESET}"
+                formatted_message = f"{COLOR_MAGENTA}{client_name}: {message}{COLOR_RESET}"
                 print(formatted_message)
                 broadcast(formatted_message, client_socket)
             else:
@@ -39,7 +39,7 @@ def send_messages():
     while True:
         message = input()
         formatted_message = f"{message}"
-        broadcast(f"{COLOR_MAGENTA}{formatted_message}{COLOR_RESET}", None)
+        broadcast(f"{COLOR_YELLOW}{formatted_message}{COLOR_RESET}", None)
 
 def start_server():
     global client_count
