@@ -46,7 +46,7 @@ def start_server():
     global client_count
 
     host = '0.0.0.0'  # Listen on all interfaces
-    port = 12345  # Use any port in the range 1024-49151
+    port = 5040  # Use any port in the range 1024-49151
 
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind((host, port))
