@@ -28,7 +28,7 @@ def get_host_ip():
 
 def start_client():
     host = get_host_ip()  # Get the host's IP address automatically
-    port = 5050  # Must be the same as the server's port
+    port = 5040  # Must be the same as the server's port
 
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     
