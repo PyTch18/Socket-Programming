@@ -33,20 +33,26 @@ def start_client():
 
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     
-    try:
-        print(f"Attempting to connect to {server_ip}:{port}")
-        server_socket.connect((server_ip, port))
-        print("Connected to the server")
+    while True:
+        command = input("Type 'CONNECT' to connect to the server: ")
+        if command.strip().upper() == 'CONNECT':
+            try:
+                print(f"Attempting to connect to {server_ip}:{port}")
+                server_socket.connect((server_ip, port))
+                print("Connected to the server")
 
-        server_handler = threading.Thread(target=handle_server, args=(server_socket,))
-        server_handler.start()
+                server_handler = threading.Thread(target=handle_server, args=(server_socket,))
+                server_handler.start()
 
-        send_messages(server_socket)
-    except Exception as e:
-        print(f"Connection error: {e}")
-    finally:
-        server_socket.close()
-        print("Disconnected from the server")
+                send_messages(server_socket)
+            except Exception as e:
+                print(f"Connection error: {e}")
+            finally:
+                server_socket.close()
+                print("Disconnected from the server")
+            break
+        else:
+            print("Invalid command. Please type 'CONNECT' to proceed.")
 
 if __name__ == '__main__':
     start_client()

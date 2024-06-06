@@ -55,8 +55,8 @@ def send_messages():
 def start_server():
     global client_count
 
-    host = '0.0.0.0'  # Listen on all interfaces
-    port = 49664  # Use port 49664 for the server
+    host = '172.20.10.6'  # Listen on all interfaces
+    port = 5040  # Use port 49664 for the server
 
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     
